@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cyan Slayer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: black;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(270deg, #ff00cc, #3333ff, #00ffcc, #ff3300);
+      background-size: 800% 800%;
+      animation: gradientShift 20s ease infinite;
+      filter: blur(25px);
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .section {
+      padding: 80px 20px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease;
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glow-title {
+      font-size: 4em;
+      color: #0ff;
+      text-shadow: 0 0 10px #0ff, 0 0 30px #0ff, 0 0 60px #0ff;
+      margin-bottom: 10px;
+    }
+
+    .neon-text {
+      font-size: 1.2em;
+      color: #ccc;
+      text-shadow: 0 0 5px #0ff;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .neon-btn {
+      margin-top: 25px;
+      background: linear-gradient(45deg, #00f, #f0f, #0ff, #0f0, #f00);
+      background-size: 400%;
+      color: white;
+      padding: 15px 35px;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      animation: glowmove 8s linear infinite;
+      box-shadow: 0 0 20px #0ff;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    @keyframes glowmove {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    iframe {
+      width: 90%;
+      max-width: 700px;
+      height: 315px;
+      border: 4px solid #0ff;
+      border-radius: 15px;
+      margin-top: 30px;
+      box-shadow: 0 0 30px #0ff;
+    }
+
+    .socials {
+      margin-top: 30px;
+    }
+
+    .socials a {
+      margin: 0 15px;
+      color: #0ff;
+      text-decoration: none;
+      font-size: 20px;
+      text-shadow: 0 0 10px #0ff;
+    }
+
+    footer {
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="animated-bg"></div>
+
+  <div class="section show">
+    <h1 class="glow-title">Cyan Slayer</h1>
+    <p class="neon-text">Welcome to the RGB-powered universe of gaming chaos, kills, and glory!</p>
+    <a href="#about" class="neon-btn">Learn More</a>
+  </div>
+
+  <div class="section" id="about">
+    <h2 class="glow-title">About Me</h2>
+    <p class="neon-text">I’m Cyan Slayer — a hardcore gamer, content creator, and pixel warrior. Whether I'm shredding through enemies in shooters or leveling up in RPGs, I bring firepower and fun. Get ready to laugh, learn, and love gaming like never before.</p>
+  </div>
+
+  <div class="section" id="videos">
+    <h2 class="glow-title">My Channel</h2>
+    <p class="neon-text">Tap the button below to explore all my videos, streams, and game breakdowns.</p>
+    <a class="neon-btn" href="https://youtube.com/@cyanslayer?si=MzCRV-nPaJBYQk0m" target="_blank">Visit YouTube</a>
+  </div>
+
+  <div class="section">
+    <h2 class="glow-title">Join the Squad</h2>
+    <div class="socials">
+      <a href="https://youtube.com/@cyanslayer" target="_blank">YouTube</a>
+      <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
+      <a href="https://discord.gg/yourinvite" target="_blank">Discord</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Cyan Slayer. Powered by RGB energy.
+  </footer>
+
+  <script>
+    // Scroll animation
+    const sections = document.querySelectorAll('.section');
+    const showSection = () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < trigger) {
+          section.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', showSection);
+    showSection();
+  </script>
+
+</body>
+</html>
